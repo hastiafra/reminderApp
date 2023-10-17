@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
   const [inputText, setInputText] = useState("");
 
-  const [listItems, setListItems] = useState([])
+  const [listItems, setListItems] = useState([]);
 
   const inputValueHandler = (value) => {
-    setInputText(value)
+    setInputText(value);
   };
 
   const addButton = () => {
-    console.log(inputText)
+    setListItems((currentList) => [...currentList, inputText]);
   };
   return (
     <View style={styles.reminderContainer}>
@@ -22,19 +22,35 @@ export default function App() {
           placeholder="Type something!"
           onChangeText={inputValueHandler}
         />
-        <Button title="Add" onPress={addButton} />
+        <Pressable onPress={addButton}>
+          <Text style={styles.btn}>add</Text>
+        </Pressable>
       </View>
       <View style={styles.listContainer}>
-        <Text style={styles.listTitle}>Your List...</Text>
+        <Text style={styles.listTitle}>Your List:</Text>
+        {listItems?.map((item, i) => {
+          return (
+            <Text style={styles.listItem} key={i}>
+              {item}
+            </Text>
+          );
+        })}
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  btn: { 
+  backgroundColor: "teal",
+  borderRadius: 10,
+  padding:10,
+  color:"white",
+  textTransform: "uppercase",
+ },
   reminderContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "whitesmoke",
     justifyContent: "center",
     flexDirection: "column",
   },
@@ -52,6 +68,7 @@ const styles = StyleSheet.create({
     borderColor: "#cccccc",
     borderWidth: 1,
     padding: 10,
+    fontSize: 18,
   },
   listContainer: {
     flex: 3,
@@ -60,5 +77,10 @@ const styles = StyleSheet.create({
   listTitle: {
     textTransform: "uppercase",
     fontWeight: 700,
+    color: "teal",
+    fontSize: 20,
+  },
+  listItem: {
+   
   },
 });
