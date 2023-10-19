@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyleSheet, Text, Pressable, View } from "react-native";
 
 const Lists = (props) => {
-  const { id, setListItems, listItems } = props;
+  const { id, setListItems, listItems, item, index } = props;
 
   const deleteItem = () => {
     const newList = listItems.filter((item) => {
@@ -12,10 +12,13 @@ const Lists = (props) => {
   };
 
   return (
-    <Pressable onPress={deleteItem}>
+    <Pressable
+      style={({ pressed }) => pressed && styles.clickedItem}
+      onPress={deleteItem}
+    >
       <View>
-        <Text style={styles.listItem} key={props.index}>
-          {props.item}
+        <Text style={styles.listItem} key={index}>
+          {item}
         </Text>
       </View>
     </Pressable>
@@ -31,5 +34,8 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 10,
+  },
+  clickedItem: {
+    opacity: 0.5,
   },
 });
