@@ -1,10 +1,24 @@
-import { StyleSheet, Text } from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, Pressable, View } from "react-native";
 
 const Lists = (props) => {
+  const { id, setListItems, listItems } = props;
+
+  const deleteItem = () => {
+    const newList = listItems.filter((item) => {
+      return item.id !== id;
+    });
+    setListItems(newList);
+  };
+
   return (
-    <Text style={styles.listItem} key={props.index}>
-      {props.item}
-    </Text>
+    <Pressable onPress={deleteItem}>
+      <View>
+        <Text style={styles.listItem} key={props.index}>
+          {props.item}
+        </Text>
+      </View>
+    </Pressable>
   );
 };
 

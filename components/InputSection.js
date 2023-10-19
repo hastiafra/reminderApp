@@ -1,15 +1,15 @@
-
 import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 
 const InputSection = (props) => {
+  const { addButton, inputValueHandler } = props;
   return (
     <View style={styles.inputContainer}>
       <TextInput
         style={styles.textInput}
         placeholder="Type something!"
-        onChangeText={props.inputValueHandler}
+        onChangeText={inputValueHandler}
       />
-      <Pressable onPress={props.addButton}>
+      <Pressable onPress={addButton}>
         <Text style={styles.btn}>add</Text>
       </Pressable>
     </View>
