@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, Modal } from "react-native";
+import { Image, StyleSheet, Text, View, Modal } from "react-native";
 
 const Intro = () => {
   const [showModal, setShowModal] = useState(true);
@@ -11,6 +11,10 @@ const Intro = () => {
   return (
     <Modal visible={showModal} animationType="fade">
       <View style={styles.introContainer}>
+        <Image
+          style={styles.image}
+          source={require("../assets/reminder.png")}
+        />
         <Text style={styles.title}>Reminder App</Text>
       </View>
     </Modal>
@@ -28,9 +32,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
   },
   title: {
     color: "white",
     fontSize: 20,
+  },
+  image: {
+    width: 50,
+    height: 50,
   },
 });
