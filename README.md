@@ -1,2 +1,2 @@
 # reminderApp
-This is a simple React Native app which is coded using EXPO CLI and Android Studio
+This is a simple React-native App, that allows user to make a list of items and also remove the items from the list, this app is working on both IOS and Android and I used EXPO CLI and Android Studio for testing. 
