@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { StyleSheet, Text, Pressable, View } from "react-native";
 
 const Lists = (props) => {
