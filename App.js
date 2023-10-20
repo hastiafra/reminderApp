@@ -1,15 +1,8 @@
 import { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import Lists from "./components/Lists";
 import InputSection from "./components/InputSection";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  ScrollView,
-} from "react-native";
+import Intro from "./components/Intro";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 export default function App() {
   const [inputText, setInputText] = useState("");
@@ -31,6 +24,7 @@ export default function App() {
 
   return (
     <View style={styles.reminderContainer}>
+      <Intro />
       <InputSection
         inputValueHandler={inputValueHandler}
         addButton={addButton}
@@ -44,7 +38,6 @@ export default function App() {
                 setListItems={setListItems}
                 listItems={listItems}
                 item={item.name}
-                index={index}
                 id={item.id}
               />
             );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyleSheet, Text, Pressable, View } from "react-native";
 
 const Lists = (props) => {
-  const { id, setListItems, listItems, item, index } = props;
+  const { id, setListItems, listItems, item } = props;
 
   const deleteItem = () => {
     const newList = listItems.filter((item) => {
@@ -17,7 +17,7 @@ const Lists = (props) => {
       onPress={deleteItem}
     >
       <View>
-        <Text style={styles.listItem} key={index}>
+        <Text style={styles.listItem} key={id}>
           {item}
         </Text>
       </View>
