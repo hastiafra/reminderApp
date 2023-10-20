@@ -39,6 +39,7 @@ export default function App() {
                 listItems={listItems}
                 item={item.name}
                 id={item.id}
+                key={index}
               />
             );
           })}
@@ -51,7 +52,7 @@ export default function App() {
 const styles = StyleSheet.create({
   reminderContainer: {
     flex: 1,
-    backgroundColor: "whitesmoke",
+    backgroundColor: "floralwhite",
     justifyContent: "center",
     flexDirection: "column",
   },
